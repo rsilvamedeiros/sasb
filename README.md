@@ -8,54 +8,62 @@ Template utilizado como base -> <a href="http://opensource.locaweb.com.br/locawe
 Banco de dados utilizado -> MySQL
 
 
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+## Configurando o projeto
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Após clonar o projeto, com o terminal aberto na pasta do projeto, execute o comando:
 
-## About Laravel
+composer install --no-scripts
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+Renomeie então o arquivo:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+.env.example
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+para
 
-## Learning Laravel
+.env
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+Dentro do arquivo .env edite os campos para que fiquem como os demonstrados abaixo:
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+DB_CONNECTION=mysql
 
-## Laravel Sponsors
+DB_HOST=127.0.0.1
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
+DB_PORT=3306
 
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
+DB_DATABASE=sasb
 
-## Contributing
+DB_USERNAME=root
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+DB_PASSWORD=1234
 
-## Security Vulnerabilities
+Obs: No lugar de "root" e "1234" coloque o usuário e a senha atribuidos na instalação do seu MySQL.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+Crie então uma nova chave para a aplicação com o comando:
 
-## License
+php artisan key:generate
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Crie então no MySQL um BD (banco de dados) chamado "sasb" (caso deseje utilizar outro nome modifique também no DB_DATABASE).
+
+Obs: O Laravel possui definido como codificação de caracteres padrão o formato utf8mb4_unicode_ci
+
+Em seguida, no terminal aberto na pasta do projeto, execute o comando para criação das tabelas:
+
+php artisan migrate
+
+Pronto! Agora, para executar o sistema, utilize o comando:
+
+php artisan serve
+
+No navegador pode acessar o sistema através do endereço:
+
+http://127.0.0.1:8000
+
+ou então:
+
+localhost:8000
+
+Para acesso utilize:
+
+Nome: admin@admin.com
+
+Senha: admin123
