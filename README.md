@@ -1,5 +1,7 @@
 # => SASB <=
-### Sistema de auxílio de serviços e bens. Desenvolvido em PHP com o framework Laravel com o foco de auxiliar na emissão de ordens e serviços no âmbito educacionais.
+
+
+## Sistema de auxílio de serviços e bens. Desenvolvido em PHP com o framework Laravel com o foco de auxiliar na emissão de ordens e serviços no âmbito educacionais.
 
 Aplicação criada utilizando PHP com o framework Laravel.
 
@@ -8,62 +10,73 @@ Template utilizado como base -> <a href="http://opensource.locaweb.com.br/locawe
 Banco de dados utilizado -> MySQL
 
 
-## Configurando o projeto
+## Dependências
+
+* PHP >= 7.1.3
+* MySQL Server >= 5.5.54
+* OpenSSL PHP Extension
+* PDO PHP Extension
+* Mbstring PHP Extension
+* Tokenizer PHP Extension
+* XML PHP Extension
+
+## Configurando o sistema
 
 Após clonar o projeto, com o terminal aberto na pasta do projeto, execute o comando:
 
-composer install --no-scripts
+```composer install --no-scripts```
 
 Renomeie então o arquivo:
 
-.env.example
+```.env.example```
 
 para
 
-.env
+```.env```
 
 Dentro do arquivo .env edite os campos para que fiquem como os demonstrados abaixo:
 
-DB_CONNECTION=mysql
+```DB_CONNECTION=mysql```
 
-DB_HOST=127.0.0.1
+```DB_HOST=127.0.0.1```
 
-DB_PORT=3306
+```DB_PORT=3306```
 
-DB_DATABASE=sasb
+```DB_DATABASE=sasb```
 
-DB_USERNAME=root
+```DB_USERNAME=root```
 
-DB_PASSWORD=1234
+```DB_PASSWORD=1234```
 
 Obs: No lugar de "root" e "1234" coloque o usuário e a senha atribuidos na instalação do seu MySQL.
 
 Crie então uma nova chave para a aplicação com o comando:
 
-php artisan key:generate
+```php artisan key:generate```
 
 Crie então no MySQL um BD (banco de dados) chamado "sasb" (caso deseje utilizar outro nome modifique também no DB_DATABASE).
+Após a criação do BD, importe o arquivo SQL (sasb.sql) que está na raiz do projeto.
 
-Obs: O Laravel possui definido como codificação de caracteres padrão o formato utf8mb4_unicode_ci
+>Obs: O Laravel possui definido como codificação de caracteres padrão o formato ```utf8mb4_unicode_ci```
 
 Em seguida, no terminal aberto na pasta do projeto, execute o comando para criação das tabelas:
 
-php artisan migrate
+```php artisan migrate``` 
 
 Pronto! Agora, para executar o sistema, utilize o comando:
 
-php artisan serve
+```php artisan serve```
 
 No navegador pode acessar o sistema através do endereço:
 
-http://127.0.0.1:8000
+```http://127.0.0.1:8000```
 
 ou então:
 
-localhost:8000
+```localhost:8000```
 
 Para acesso utilize:
 
-Nome: admin@admin.com
+Nome: ```admin@admin.com```
 
-Senha: admin123
+Senha: ```admin123```
